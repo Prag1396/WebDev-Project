@@ -21,18 +21,16 @@ db.define_table('categories',
                 Field('senior', 'boolean')
                 )
 
-db.define_table('volunteer_post',
-                Field('user_email', default=get_user_email()),
+db.define_table('opportunities',
                 Field('title', label='Company Name'),
+                # Field('author', 'reference companies'),
                 Field('memo', 'text', label='Description'),
                 Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
                 Field('local_categories', 'reference categories', label="Category")
                 )
 
-db.volunteer_post.user_email.writable = False
-db.volunteer_post.user_email.readable = False
-db.volunteer_post.updated_on.writable = db.volunteer_post.updated_on.readable = False
-db.volunteer_post.id.writable = db.volunteer_post.id.readable = False
+db.opportunities.updated_on.writable = db.opportunities.updated_on.readable = False
+db.opportunities.id.writable = db.opportunities.id.readable = False
 
 
 
