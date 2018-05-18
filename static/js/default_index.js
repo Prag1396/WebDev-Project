@@ -13,19 +13,25 @@ var app = function() {
         }
     };
 
+    self.createPost = function(){
+        alert("YOU SUCK");
+    };
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
+
         },
         methods: {
+            createPost: self.createPost
         }
 
     });
 
-
+    $("#vue-div").show();
     return self;
 };
 
