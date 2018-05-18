@@ -13,8 +13,8 @@ var app = function() {
         }
     };
 
-    self.createPost = function(){
-        alert("YOU SUCK");
+    self.createPost = function(company){
+        company.push(['Geo','Milan']);
     };
 
     // Complete as needed.
@@ -23,7 +23,7 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-
+            companies: []
         },
         methods: {
             createPost: self.createPost

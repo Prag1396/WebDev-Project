@@ -28,7 +28,14 @@
     <div id="vue-div" class="display:none">
         <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
         <div class="data_items">
-            <button v-on:click="createPost()">hello nub nub</button>
+            <form>
+                <input type="text" name="title" value="Company Name" onfocus="if (this.name=='title') this.value='';">
+                <input type="text" name="memo" value="Description" onfocus="if (this.name=='memo') this.value='';">
+                <input type="submit" value="Submit">
+            </form>
+
+
+            <button v-on:click="createPost(companies)">hello nub nub</button>
         </div>
     </div>
 
