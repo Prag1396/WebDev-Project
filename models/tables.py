@@ -11,6 +11,8 @@ import datetime
 def get_user_email():
     return auth.user.email if auth.user is not None else None
 
+# Hello Geo
+
 db.define_table('categories',
                 Field('children', 'boolean', label='Children', default=True),
                 Field('community', 'boolean', default=False),
