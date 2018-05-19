@@ -13,8 +13,8 @@ var app = function() {
         }
     };
 
-    self.createPost = function(company){
-        company.push(['Geo','Milan']);
+    self.createPost = function(){
+        
     };
 
     // Complete as needed.
@@ -23,7 +23,9 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-            companies: []
+            companies: [],
+            title: '',
+            memo: ''
         },
         methods: {
             createPost: self.createPost
