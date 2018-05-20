@@ -61,4 +61,6 @@ def call():
     """
     return service()
 
+def posts():
+    return
 
