@@ -14,7 +14,7 @@ var app = function() {
     };
 
     self.createPost = function(){
-        
+        alert("Submitted");
     };
 
     // Complete as needed.
