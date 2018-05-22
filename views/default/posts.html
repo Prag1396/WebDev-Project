@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>HIII</title>
-</head>
-<body>
-    
-</body>
-</html>
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+
+{{end}}
+
+<div class="main_content">
+
+    <div id="vue-div" class="display:none">
+        <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
+
+        <div v-if="show_items" v-on:click="add_post_button()">Hello</div>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="{{=URL('static', 'js/default_index.js')}}"></script>
