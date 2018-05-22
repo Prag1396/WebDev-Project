@@ -1,12 +1,22 @@
 {{extend 'layout.html'}}
 
-<h3 align="center">
-{{=T('Sign Up') if request.args(0) == 'register' else T('Log In') if request.args(0) == 'login' else T(request.args(0).replace('_',' ').title())}}
-</h3>
 
-<div class="container" align="right">
-    <div class="row" align="center">
-        <div id="web2py_user_form" class="col-lg-6">
+
+{{if response.flash:}}
+    <div class="w2p_flash">
+      {{=response.flash}}
+    </div>
+    {{pass}}
+    <header class="grey padded">
+      <div class="container middle max900">
+      </div>
+    </header>
+    <div class="signup">
+    <main class="signupform">
+
+<div class="container">
+    <div class="row">
+        <div id="web2py_user_form" class="col-md-6">
         {{
         if request.args(0)=='login':
             if not 'register' in auth.settings.actions_disabled:
@@ -21,6 +31,9 @@
         </div>
     </div>
 </div>
+
+    </main>
+       </div>
 
 
 {{block page_js}}

@@ -235,3 +235,7 @@ hr {
 .notes {
  display: inline-block;
 }
+
+.signup {
+    text-align: center;
+}
