@@ -27,6 +27,13 @@ db.define_table('volunteer_post',
                 Field('local_categories', 'reference categories', label="Category")
                 )
 
+db.define_table('form',
+                Field('organization' ),
+                Field('opportunity' ),
+                Field('impact'),
+                Field('link')
+                )
+
 db.volunteer_post.user_email.writable = False
 db.volunteer_post.user_email.readable = False
 db.volunteer_post.updated_on.writable = db.volunteer_post.updated_on.readable = False

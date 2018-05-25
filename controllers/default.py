@@ -67,3 +67,7 @@ def posts():
 def signup():
     return dict(form=auth())
 
+def testform():
+    form = SQLFORM(db.form)
+    return dict(form=form)
+
