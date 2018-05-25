@@ -1,7 +1,7 @@
 {{extend 'layout.html'}}
 
 
-
+<!---
 {{if response.flash:}}
     <div class="w2p_flash">
       {{=response.flash}}
@@ -13,10 +13,11 @@
     </header>
     <div class="signup">
     <main class="signupform">
+    -->
 
-<div class="container">
-    <div class="row">
-        <div id="web2py_user_form" class="col-md-6">
+<div class="headersignup">
+    <div class="myrow">
+        <div class="signupform">
         {{
         if request.args(0)=='login':
             if not 'register' in auth.settings.actions_disabled:
@@ -32,8 +33,6 @@
     </div>
 </div>
 
-    </main>
-       </div>
 
 
 {{block page_js}}
