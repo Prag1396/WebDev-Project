@@ -31,7 +31,6 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                <li>
                     {{if auth.user_id is None:}}
                      <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
                  {{pass}}
@@ -40,11 +39,28 @@
                     {{if auth.user_id:}}
                         <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
 
+<<<<<<< HEAD
                     {{else:}}
                     <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
 
                     {{pass}}
                 </li>
+
+=======
+                        <li class="dropdown">
+                            <a class=colornav" href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-log-in"></span>     My Account <b class="caret"></b></a>
+                                <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                                    <li>
+                                        <!--<div class="row">
+                                            <div class="col-md-12">
+                                                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                                </form>
+                                            </div>
+                                        </div> -->
+                                     </li>
+                                </ul>
+                        </li>
+>>>>>>> 4e817e0481c86779682589cff12989ac0313bf57
             </ul>
         </div>
     </nav>
