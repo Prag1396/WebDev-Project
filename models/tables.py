@@ -31,6 +31,7 @@ db.define_table('form',
                 Field('organization' ),
                 Field('opportunity' ),
                 Field('impact'),
+                Field('major(s)'),
                 Field('link')
                 )
 
