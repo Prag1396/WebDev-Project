@@ -62,8 +62,11 @@ def call():
     return service()
 
 def posts():
+
     return dict()
 
 def signup():
+
     return dict(form=auth())
+
 
