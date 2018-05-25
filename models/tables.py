@@ -11,7 +11,7 @@ import datetime
 def get_user_email():
     return auth.user.email if auth.user is not None else None
 
-# Hello Geo
+
 
 db.define_table('categories',
                 Field('children', 'boolean', label='Children', default=True),
@@ -31,6 +31,13 @@ db.define_table('opportunities',
 
 db.opportunities.updated_on.writable = db.opportunities.updated_on.readable = False
 db.opportunities.id.writable = db.opportunities.id.readable = False
+
+db.define_table('form',
+                Field('organization' ),
+                Field('opportunity' ),
+                Field('impact'),
+                Field('link')
+                ) 
 
 
 

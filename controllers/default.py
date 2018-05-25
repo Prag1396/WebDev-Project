@@ -65,4 +65,11 @@ def call():
     """
     return service()
 
+def testform():
+    form = SQLFORM(db.form)
+    return dict(form=form)
+
+ 
+
+
 
