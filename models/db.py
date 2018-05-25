@@ -65,6 +65,8 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
+auth.settings.login_next = URL('posts')
+auth.settings.register_next = URL('posts')
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
 
