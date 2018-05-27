@@ -13,42 +13,6 @@
 </head>
 
 <body>
-    <nav class="nav fixed-top navbar-custom">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">UniVon</a>
-            </div>
-
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a class="colornav">Home</a></li>
-                <!-- should take to a new page -->
-                <li><a href="{{=URL('default', 'posts')}}" class="colornav">Find Opportunities</a></li>
-                <li><a href="#services" class="colornav">About</a></li>
-                <li><a href="#contact" class="colornav">Contact</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                <li>
-                    {{if auth.user_id is None:}}
-                     <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
-                 {{pass}}
-                    </li>
-                <li>
-                    {{if auth.user_id:}}
-                        <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
-
-                    {{else:}}
-                    <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
-
-                    {{pass}}
-                </li>
-            </ul>
-        </div>
-    </nav>
-
     <!-- Header -->
     <header id="top" class="header" >
         <div class="text-vertical-center">
