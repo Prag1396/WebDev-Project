@@ -68,6 +68,8 @@ def signup():
     return dict(form=auth())
 
 def testform():
-    form = SQLFORM(db.form)
+    form = SQLFORM(db.volunteer_post)
+    if form.accepted:
+        print ('accepted')
     return dict(form=form)
 

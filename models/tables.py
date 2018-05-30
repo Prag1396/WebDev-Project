@@ -28,9 +28,9 @@ db.define_table('volunteer_post',
                 )
 
 db.define_table('form',
-                Field('organization' ),
-                Field('opportunity' ),
-                Field('impact' ),
+                Field('organization'),
+                Field('opportunity'),
+                Field('impact'),
                 Field('major'),
                 Field('link')
                 )
