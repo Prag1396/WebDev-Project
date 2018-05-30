@@ -10,11 +10,10 @@
     <div id="vue-div" class="display:none">
         <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
 
-        <div v-if="show_items" v-on:click="add_post_button()">Hello</div>
-
-        </div>
+        <h1>Posts should go here.</h1>
+        <p v-if="is_post">Hello World!</p>
     </div>
 
 </div>
 
-<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
