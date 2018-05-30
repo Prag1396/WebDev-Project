@@ -65,4 +65,8 @@ def call():
     """
     return service()
 
+def main():
+	main = SQLFORM(db.main)
+	return dict(form=main) 
+
 

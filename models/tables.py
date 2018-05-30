@@ -29,6 +29,13 @@ db.define_table('opportunities',
                 Field('local_categories', 'reference categories', label="Category")
                 )
 
+db.define_table('main',
+                Field('title', label='Company Name'),
+                Field('memo', 'text', label='Description'),
+                Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
+                Field('local_categories', 'reference categories', label="Category")
+                )
+
 db.opportunities.updated_on.writable = db.opportunities.updated_on.readable = False
 db.opportunities.id.writable = db.opportunities.id.readable = False
 
