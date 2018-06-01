@@ -13,24 +13,21 @@ var app = function() {
         }
     };
 
-    // self.getPosts = function() {
-    //     $.getJSON(get_user_url,
-    //         function(data){
-    //             self.vue.users = data.user;
-    //             console.log(self.vue.users.length);
-    //             for(var i = 0; i < self.vue.users.length; i++)
-    //             {
-    //                 console.log(self.vue.users[i].email); //self.vue.users[i].first_name
-    //                 if(self.vue.users[i].email == self.vue.userEmail)
-    //                 {
-    //                     console.log("matching email at index: " + i);
-    //                     self.vue.users.splice(i, 1); // delete element i
-    //                 }
-    //             }
-    //             console.log('End of getUser function');
-    //             }
-    //         );
-    // };
+    self.get_posts = function() {
+        console.log('hello');
+        $.getJSON(get_posts_url,
+            function(data) {
+                t = [];
+                for(i in data.posts) {
+                    t.push(data.posts[i]);
+                    if(t != self.vue.posts)
+                        self.vue.posts = t;
+                }
+                console.log(self.vue.posts)
+            })
+    };
+
+
 
     // Complete as needed.
     self.vue = new Vue({
@@ -38,13 +35,14 @@ var app = function() {
         delimiters: ['${', '}'],
         unsafeDelimiters: ['!{', '}'],
         data: {
-            is_post: true
+            is_post: true,
+            posts: []
         },
         methods: {
+            get_posts: self.get_posts
         }
 
     });
-
 
     return self;
 };
