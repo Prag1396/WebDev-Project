@@ -45,7 +45,146 @@
   </div>
 </div>
 
+<div class="container">
+    <div class="well well-sm">
+        <strong>Display</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+        <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+             <div class="item  col-xs-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading">
+                        Volunteering title Fetched from database</h4>
+                    <p class="group inner list-group-item-text">
+                        Volunteering Description fetched from database</p>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-8">
+                            <p class="lead">
+                                $10/hr</p>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                            <a class="btn btn-success" href="">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
 </div>
+
+<script>
+ $(document).ready(function() {
+    $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
+    $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+});
+</script>
+
 
 <script src="{{=URL('static', 'js/default_index.js')}}"></script>
