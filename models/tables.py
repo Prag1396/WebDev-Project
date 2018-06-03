@@ -28,11 +28,13 @@ db.define_table('volunteer_post',
                 )
 
 db.define_table('form',
-                Field('organization' ),
-                Field('opportunity' ),
-                Field('impact' ),
-                Field('major'),
-                Field('link')
+                Field('organization', 'boolean', label='Children', default=True),
+                Field('opportunity', 'boolean' ),
+                Field('impact', 'boolean'),
+                Field('major', 'boolean'),
+                Field('link', 'boolean'),
+                Field('user_email', 'boolean', default=get_user_email()),
+                Field('updated_on', 'datetime', update=datetime.datetime.utcnow())
                 )
 
 db.volunteer_post.user_email.writable = False
