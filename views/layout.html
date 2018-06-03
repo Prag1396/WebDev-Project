@@ -9,16 +9,70 @@
     <link href="{{=URL('static','css/calendar.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{=URL('static','css/web2py.css')}}" rel="stylesheet" type="text/css"/>
     <link href="{{=URL('static','css/myapp.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{=URL('static','css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="{{=URL('static', 'font-awesome-4.6.3/css/font-awesome.min.css')}}">
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
-
     {{include "web2py_ajax.html"}}
   </head>
-  <body>
 
+
+
+  <body>
+      <nav class="nav fixed-top navbar-custom">
+          <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand">UniVon</a>
+              </div>
+  
+  
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="{{=URL('default', 'index')}}" class="colornav">Home</a></li>
+                  <!-- should take to a new page -->
+                  <li><a href="{{=URL('default', 'posts')}}" class="colornav">Find Opportunities</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">About</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">Contact</a></li>
+              </ul>
+  
+  
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                  <li>
+                      {{if auth.user_id is None:}}
+                       <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+                   {{pass}}
+                      </li>
+                  <li>
+                      {{if auth.user_id:}}
+                          <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
+  
+                      {{else:}}
+                      <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
+  
+                      {{pass}}
+                  </li>
+              </ul>
+          </div>
+      </nav>
+      {{include}}
   </body>
+    <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
+  <!-- <body class="black">
+
+    <header class="black padded">
+      <div class="container middle max900">
+        <div class="fill middle">
+          <label class="ham padded fa fa-bars" for="menu"></label>
+          <div class="burger accordion">
+            <input type="checkbox" id="menu"/>
+            {{=MENU(response.menu,_class='menu')}}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <footer class="black">
+
+    </footer>
+  </body> -->
   <script src="{{=URL('static','js/marked.min.js')}}"></script>
   <script src="{{=URL('static','js/vue.min.js')}}"></script>
   {{block bottomjs}}{{end}}
