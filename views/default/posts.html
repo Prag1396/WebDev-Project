@@ -5,12 +5,17 @@
 <link href="{{=URL('static','css/search-filter.css')}}" rel="stylesheet" type="text/css"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+    // Define API Variables
+    var get_posts_url="{{=URL('api', 'get_posts')}}";
+</script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 
 {{end}}
 
 <div class="container">
-  <div class="row searchFilter" >
+  <div id="vue-div" class="row searchFilter" >
      <div class="col-sm-12" >
       <div class="input-group" >
        <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown" >
@@ -38,7 +43,7 @@
             </li>
            </ul>
         </div>
-        <button id="searchBtn" type="button" class="btn btn-secondary btn-search" ><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span></button>
+        <button id="searchBtn" type="button" class="btn btn-secondary btn-search" v-on:click="get_posts"><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span></button>
        </div>
       </div>
      </div>
@@ -188,4 +193,4 @@
 </script>
 
 
-<script src="{{=URL('static', 'js/default_index.js')}}"></script>
+<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
