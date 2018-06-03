@@ -62,12 +62,18 @@ def call():
     return service()
 
 def posts():
+
     return dict()
 
 def signup():
+
     return dict(form=auth())
 
 def testform():
     form = SQLFORM(db.form)
+    if form.process().accepted:
+        print ('nice')
+    elif form.errors:
+        redirect()
     return dict(form=form)
 

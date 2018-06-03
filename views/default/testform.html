@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Form</title>
-</head>
-<body>
-<div>
-    {{=form}}
+{{extend 'layout.html'}}
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+{{end}}
+
+<script> var get_posts_url = "{{=URL('api', 'get_posts')}}"</script>
+
+<div id='vue-div' style="padding-left: 3em; padding-top: 5em">
+    <p>We will retrieve the data.</p>
+    <button v-on:click="get_posts()">Get Posts</button>
+
+    <div v-if="posts.length != 0">
+        <ul v-for="post in posts"></ul>
+        <li>${post.organization}</li>
+    </div>
+
 </div>
-</body>
-</html>
+
+<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
+
