@@ -11,6 +11,12 @@ import datetime
 def get_user_email():
     return auth.user.email if auth.user is not None else None
 
+def user():
+    if request.args(0) == 'profile':
+        for field in auth.settings.extra_fields['auth_user']:
+            field.readable = field.writable = True
+    return dict(form=auth())
+
 # Hello Geo
 
 db.define_table('categories',
@@ -29,6 +35,7 @@ db.define_table('volunteer_post',
                 Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
                 Field('local_categories', 'reference categories', label="Category")
                 )
+
 
 db.volunteer_post.user_email.writable = False
 db.volunteer_post.user_email.readable = False

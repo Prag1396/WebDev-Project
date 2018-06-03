@@ -42,8 +42,8 @@
                       </li>
                   <li>
                       {{if auth.user_id:}}
+                          <a href="{{=URL('default','user',args=['profile'])}}">Profile</a> <br>
                           <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
-  
                       {{else:}}
                       <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
   
@@ -54,6 +54,7 @@
       </nav>
       {{include}}
   </body>
+    
     <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
   <!-- <body class="black">
 
