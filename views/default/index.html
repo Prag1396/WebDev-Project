@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+{{extend 'layout.html'}}
 
 <head>
 
@@ -9,83 +8,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ColVon</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="{{=URL('static','css/custom.css')}}" rel="stylesheet">
-    <link href="{{=URL('static','css/myapp.css')}}" rel="stylesheet">
-    <link href="{{=URL('static','font-awesome-4.6.3/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{=URL('static','css/stupid.css')}}" rel="stylesheet" type="text/css"/>
-
+    <title>UniVon</title>
 
 </head>
 
 <body>
-
-    <!-- Navigation
-    <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-    <nav id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-            <li class="sidebar-brand">
-                <a href="#top" onclick=$("#menu-close").click();>UniVon</a>
-            </li>
-             <li>
-                 {{if auth.user_id:}}
-                     <a href="{{=URL('default','user',args=['logout'])}}" onclick=$("#menu-close").click();>Sign out</a>
-                 {{else:}}
-                    <a href="{{=URL('default','user',args=['login'])}}" onclick=$("#menu-close").click();>Sign in</a>
-                 {{pass}}
-
-            </li>
-            <li>
-                <a href="#services" onclick=$("#menu-close").click();>Services</a>
-            </li>
-            <li>
-                <a href="#details" onclick=$("#menu-close").click();>About</a>
-            </li>
-
-            <li>
-                <a href="#contact" onclick=$("#menu-close").click();>Contact</a>
-            </li>
-        </ul>
-    </nav> -->
-
-    <nav class="nav fixed-top navbar-custom">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand">UniVon</a>
-            </div>
-
-
-            <ul class="nav navbar-nav">
-                <li class="active"><a class="colornav">Home</a></li>
-                <!-- should take to a new page -->
-                <li><a href="#" class="colornav">Find Opportunities</a></li>
-                <li><a href="#services" class="colornav">About</a></li>
-                <li><a href="#difference" class="colornav">The UniVon Difference</a></li>
-                <li><a href="#contact" class="colornav">Contact</a></li>
-            </ul>
-
-
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    {{if auth.user_id:}}
-                     <a class="colornav" href="{{=URL('default','user',args=['logout'])}}" onclick=$("#menu-close").click();><span class="glyphicon glyphicon-user"></span> Sign out</a>
-                 {{else:}}
-                    <a class="colornav" href="{{=URL('default','user',args=['login'])}}" onclick=$("#menu-close").click();><span class="glyphicon glyphicon-user"></span> Sign in</a>
-                 {{pass}}
-                </li>
-                <li><a class="colornav" href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            </ul>
-
-        </div>
-
-    </nav>
-
     <!-- Header -->
     <header id="top" class="header" >
         <div class="text-vertical-center">
@@ -185,59 +112,33 @@
     <!-- /.container -->
     </section>
     <!--Section Details-->
-    <section id="difference" class="details">
+    <section id="details" class="details">
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
                     <div class="row">
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <h4><strong>Premier Volunteer Matchmaking</strong></h4>
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-users fa-stack-1x text-primary"></i>
-                            </span>
-                                <p>Our algorithms helps you find the best volunteer opportunity 
-                            near you that also suits your times and needs accordingly. You 
-                            can change your availability anytime by logging in and our 
-                            algorithm will update the job opportunities accordingly. We 
-                            connect you with passionate non-profit organizations who are 
-                            looking for people like you who can make a difference to the 
-                            their cause and possibly help improve the situation.</p>
-                                <br>
-                            </div>
+                        <div id="section1">
+                            <h2><strong>Volunteer Matchmaking</strong></h2>
+                            <p>Our algorithms helps you find the best volunteer opportunity near you that also suits your times and needs accordingly. You can change your availability anytime by logging in and our algorithm will update the job opportunities accordingly. We connect you with passionate non-profit organizations who are looking for people like you who can make a difference to the their cause and possibly help improve the situation.</p>
                         </div>
-                        
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <h4><strong>Easier Communication</strong></h4>
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-comments fa-stack-1x text-primary"></i>
-                            </span>
-                                <p>Now you can communicate directly with the non-profit without wasting time finding the email/contact info of a pirticular non-profit organization that you would like to work with. UniVon provides a generalized platform where every Non-profit has provided their contact information and you don't have to go anywhere else. You can easily communicate with them with just 1-click.</p>
-                                <br>
-                            </div>
+                    </div>
+                    <div class="row">
+                        <div id="section2">
+                            <h2><strong>Communication made easy</strong></h2>
+                            <p>Now you can communicate directly with the non-profit without wasting time finding the email/contact info of a pirticular non-profit organization that you would like to work with. UniVon provides a generalized platform where every Non-profit has provided their contact information and you don't have to go anywhere else. You can easily communicate with them with just 1-click.</p>
                         </div>
-
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <h4><strong>Faster Online Scheduling </strong></h4>
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-calendar fa-stack-1x text-primary"></i>
-                            </span>
+                    </div>
+                    <div class="row">
+                        <div id="section3">
+                            <h2><strong>Online Scheduling with UniVon</strong></h2>
                             <p>UniVon gives you the feature of updating your work schedules online so that you don;t have to contact the non-profit organization you are working with to inform them about the change in your work schedule due to other priorities. We all have some things come up when we are working as an employee and communicating and updating work schedules just takes up a lot of time. UniVon saves you that times and helps you communicate effectively.</p>
-                            </div>
                         </div>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                 <h4><strong>Better Navigation Services</strong></h4>
-                                <span class="fa-stack fa-4x">
-                                <i class="fa fa-circle fa-stack-2x"></i>
-                                <i class="fa fa-map-marker fa-stack-1x text-primary"></i>
-                            </span>
+                    </div>
+                    <div class="row">
+                        <div id="section4">
+                            <h2><strong>Auto-routes and Navigation Services</strong></h2>
                             <p>UniVon maps give you information about all the Non-profit organizations near you. You can look at all the non-profits near you at one place and one map. No need to open different maps and search for different organizations on different maps. We encourage you to use UniVon maps which will save you time and help you find the best job opportunity available near your residence.</p>
+
                         </div>
                     </div>
                     <!-- /.row (nested) -->

@@ -40,6 +40,7 @@ def user():
     to decorate functions that need access control
     also notice there is http://..../[app]/appadmin/manage/auth to allow administrator to manage users
     """
+
     return dict(form=auth())
 
 
@@ -65,8 +66,12 @@ def call():
     """
     return service()
 
-def main():
-	main = SQLFORM(db.main)
-	return dict(form=main) 
+def posts():
+
+    return dict()
+
+def signup():
+
+    return dict(form=auth())
 
 

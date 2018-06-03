@@ -65,6 +65,13 @@ auth = Auth(db, host_names=myconf.get('host.names'))
 service = Service()
 plugins = PluginManager()
 
+# redirects users to new main page
+auth.settings.login_next = URL('posts')
+auth.settings.register_next = URL('posts')
+
+# allows us to change the style of our login page
+# auth.settings.formstyle= 'ul'
+
 # create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
 

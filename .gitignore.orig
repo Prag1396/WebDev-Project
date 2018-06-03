@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+cache/*
+databases/*
+errors/*
+sessions/*
+uploads/*
+*.pyc
+*~
+.sass-cache
+.sass-cache/*
+
+.idea/workspace.xml
+=======
+cache/*
+databases/*
+errors/*
+sessions/*
+uploads/*
+*.pyc
+*~
+.sass-cache
+.sass-cache/*
+
+.idea/workspace.xml
+>>>>>>> homePageUI

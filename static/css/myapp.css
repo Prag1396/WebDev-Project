@@ -10,6 +10,7 @@ html,
 body {
     width: 100%;
     height: 100%;
+
 }
 
 .wrap {
@@ -87,6 +88,40 @@ body {
 
 }
 
+.btn-login {
+
+    border-radius: 15;
+    color: #fff;
+    width: 170px;
+    display: inline-block;
+    margin-bottom: 20px;
+    /*
+    margin-left: 50px;
+    margin-top: 30px;
+    */
+
+}
+
+.btn-lost {
+    margin-top: 20px;
+    border-radius: 15;
+    color: #fff;
+    background-color: rgba(0,0,0,0.4);
+    width: 170px;
+    display: inline-block;
+}
+
+.btn-primary {
+    width: 170px;
+    display: inline-block;
+    margin-bottom: 20px;
+    /*
+    margin-left: 30%;
+    margin-right: 30%
+    */
+
+}
+
 .btn-dark:hover,
 .btn-dark:focus,
 .btn-dark:active {
@@ -118,7 +153,10 @@ hr.small {
 
 .navbar-custom {
     background-color: white;
-    opacity: 0.5;
+    opacity: 1.0;
+    z-index: 100000;
+    position: relative;
+    overflow: visible !important;
 
 }
 
@@ -134,12 +172,37 @@ hr.small {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
+
 }
+
+.headersignup {
+
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: url("../images/uniimage.png") no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    text-align: center;
+
+
+
+
+}
+
+
 
 .colornav {
     color: black;
 }
 
+.dropdown {
+
+
+}
 
 /* About */
 
@@ -163,6 +226,11 @@ hr.small {
 .details {
     padding: 60px 80px;
     text-align: center;
+}
+
+.form-group {
+    color: white;
+    font-size: 16px;
 }
 
 /* Callout
@@ -255,5 +323,133 @@ hr {
 
 .notes {
  display: inline-block;
+}
+
+.signupform {
+
+    display: inline-block;
+    background-color: hsla(0, 0%, 75%, 0.9);
+    border-radius: 25px;
+    width: 50%;
+    margin-top: 70px;
+    padding-right: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.loginbuttons {
+
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+
+.search {
+  width: 100%;
+  position: relative;
 
 }
+
+.searchTerm {
+  float: left;
+  width: 100%;
+  border: 1px solid #00B4CC;
+  padding: 5px;
+  height: 35px;
+  border-radius: 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  position: absolute;
+  right: -50px;
+  width: 40px;
+  height: 35px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 80%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.postpage {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.glyphicon { margin-right:5px; }
+.thumbnail
+{
+    margin-bottom: 20px;
+    padding: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+
+.item.list-group-item
+{
+    float: none;
+    width: 100%;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+.item.list-group-item:nth-of-type(odd):hover,.item.list-group-item:hover
+{
+    background: #428bca;
+}
+
+.item.list-group-item .list-group-image
+{
+    margin-right: 10px;
+}
+.item.list-group-item .thumbnail
+{
+    margin-bottom: 0px;
+}
+.item.list-group-item .caption
+{
+    padding: 9px 9px 0px 9px;
+}
+.item.list-group-item:nth-of-type(odd)
+{
+    background: #eeeeee;
+}
+
+.item.list-group-item:before, .item.list-group-item:after
+{
+    display: table;
+    content: " ";
+}
+
+.item.list-group-item img
+{
+    float: left;
+}
+.item.list-group-item:after
+{
+    clear: both;
+}
+.list-group-item-text
+{
+    margin: 0 0 11px;
+}
+
