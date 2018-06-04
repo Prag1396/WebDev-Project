@@ -29,6 +29,7 @@
                   <!-- should take to a new page -->
                   <li><a href="{{=URL('default', 'posts')}}" class="colornav">Find Opportunities</a></li>
                   <li><a href="{{=URL('default', 'index')}}" class="colornav">About</a></li>
+                  <li class="difference"><a href="{{=URL('default', 'index')}}" class="colornav">The UniVon Difference</a></li>
                   <li><a href="{{=URL('default', 'index')}}" class="colornav">Contact</a></li>
               </ul>
   
@@ -42,6 +43,7 @@
                       </li>
                   <li>
                       {{if auth.user_id:}}
+                          <a href="{{=URL('default','user',args=['profile'])}}">Profile</a>
                           <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
   
                       {{else:}}
