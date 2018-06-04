@@ -35,6 +35,7 @@ var app = function() {
         unsafeDelimiters: ['!{', '}'],
         data: {
             is_post: true,
+            checkedFilters: [],
             posts: []
         },
         methods: {
