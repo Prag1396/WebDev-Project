@@ -17,6 +17,16 @@ body {
     width: 100%;
 }
 
+div.profile_div {
+    padding-right: : 100px;
+    display: inline-block;
+}
+
+div.logout_div {
+    padding-right: : 50px;
+    display: inline-block;
+}
+
 .floatleft {
     float:left; 
     width: 80%;
