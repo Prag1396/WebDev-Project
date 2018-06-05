@@ -28,16 +28,14 @@ var app = function() {
 
     return self;
 
-     self.get_user = function(){
-        $.getJSON(get_user_url, 
-            function(data){
-                self.vue.users = data.user;
-                for(var i = 0; i < self.vue.users.length; i++){      
-                    if(self.vue.users[i].email == self.vue.userEmail){
-                        self.vue.users.splice(i, 1); //i is deleted
-                    }
-                }
-            }
+    new Vue({
+      el: '#app',
+      data: {
+        form : {
+          name: ''
+      }
+  }
+});
 };
 
 var APP = null;
