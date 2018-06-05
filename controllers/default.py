@@ -44,6 +44,10 @@ def user():
     return dict(form=auth())
 
 
+def test():
+    return dict()
+
+
 @cache.action()
 def download():
     """

@@ -24,22 +24,39 @@
         <div class="dropdown-menu dropdown-menu-right" >
            <ul class="category_filters" >
             <li >
-             <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label>
+             <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+             <input type="checkbox" id="all" value="all" v-model="checkedFilters">
+             <label for="jack">All of the above</label>
             </li>
             <li >
-             <input type="radio" name="radios" id="Design" value="Design" ><label class="category-label" for="Design" > Design</label>
+             <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+             <input type="checkbox" id="community" value="community" v-model="checkedFilters">
+             <label for="jack">Community</label>
             </li>
             <li >
-             <input type="radio" name="radios" id="Marketing" value="Marketing" ><label class="category-label" for="Marketing" > Marketing</label>
+             <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+             <input type="checkbox" id="women" value="women" v-model="checkedFilters">
+             <label for="jack">Women</label>
             </li>
             <li >
-             <input type="radio" name="radios" id="Programming" value="Programming" ><label class="category-label" for="Programming" > Programming</label>
+             <!--<input type="radio" name="radios" id="Design" value="Design" ><label class="category-label" for="Design" > Design</label> -->
+             <input type="checkbox" id="foster" value="foster" v-model="checkedFilters">
+             <label for="jack">Foster Care</label>
             </li>
             <li >
-             <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" for="Sales" > Sales</label>
+             <!-- <input type="radio" name="radios" id="Programming" value="Programming" ><label class="category-label" for="Programming" > Programming</label> -->
+             <input type="checkbox" id="homelessness" value="homelessness" v-model="checkedFilters">
+             <label for="jack">Homelessness</label>
             </li>
             <li >
-             <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" for="Support" > Support</label>
+             <!-- <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" for="Sales" > Sales</label> -->
+             <input type="checkbox" id="health" value="health" v-model="checkedFilters">
+             <label for="jack">Health and Medicine</label>
+            </li>
+            <li >
+             <!-- <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" for="Support" > Support</label> -->
+             <input type="checkbox" id="senior" value="senior" v-model="checkedFilters">
+             <label for="jack">Senior Care</label>
             </li>
            </ul>
         </div>
@@ -55,8 +72,9 @@
         <strong>Display</strong>
         <div class="btn-group">
             <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
-            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
-                class="glyphicon glyphicon-th"></span>Grid</a>
+                </span>List</a> 
+            <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th">
+                </span>Grid</a>
         </div>
     </div>
     <div id="products" class="row list-group">
@@ -68,6 +86,7 @@
                         Volunteering title Fetched from database</h4>
                     <p class="group inner list-group-item-text">
                         Volunteering description Fetched from database.</p>
+
                     <div class="row">
                         <div class="col-xs-12 col-md-8">
                             <p class="lead">

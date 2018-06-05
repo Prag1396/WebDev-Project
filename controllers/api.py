@@ -15,3 +15,8 @@ def get_posts():
 
     return response.json(dict(posts=posts))
 
+def user():
+    if request.args(0) == 'profile':
+        for field in auth.settings.extra_fields['auth_user']:
+            field.readable = field.writable = True
+    return dict(form=auth())

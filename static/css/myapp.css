@@ -13,6 +13,46 @@ body {
 
 }
 
+.wrap {
+    width: 100%;
+}
+
+div.profile_div {
+    padding-right: : 100px;
+    display: inline-block;
+}
+
+div.logout_div {
+    padding-right: : 50px;
+    display: inline-block;
+}
+
+.floatleft {
+    float:left; 
+    width: 80%;
+    background-color: #ff0000;
+    height: 400px;
+}
+
+.floatright {
+float: right;
+    background-color: #00ff00;
+    height: 400px;
+    width: 20%;
+}
+
+.rectangle{
+    width:"600";
+    height:"180";
+    background-color: pink;
+    border-color: black;
+    fill: blue;
+    stroke: pink;
+    stroke-width: 5;
+    fill-opacity: 0.1;
+    stroke-opacity: 0.9;
+}
+
 h1 {
     color: black;
 }

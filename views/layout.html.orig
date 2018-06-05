@@ -1,53 +1,6 @@
-<<<<<<< HEAD
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <link href="{{=URL('static','css/stupid.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{=URL('static','css/custom.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{=URL('static','css/calendar.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{=URL('static','css/web2py.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{=URL('static','css/myapp.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{=URL('static','css/bootstrap.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="{{=URL('static', 'font-awesome-4.6.3/css/font-awesome.min.css')}}">
-    {{include "web2py_ajax.html"}}
-  </head>
 
-
-
-  <body>
-      {{include}}
-  </body>
-    <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
-  <!-- <body class="black">
-
-    <header class="black padded">
-      <div class="container middle max900">
-        <div class="fill middle">
-          <label class="ham padded fa fa-bars" for="menu"></label>
-          <div class="burger accordion">
-            <input type="checkbox" id="menu"/>
-            {{=MENU(response.menu,_class='menu')}}
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <footer class="black">
-
-    </footer>
-  </body> -->
-  <script src="{{=URL('static','js/marked.min.js')}}"></script>
-  <script src="{{=URL('static','js/vue.min.js')}}"></script>
-  {{block bottomjs}}{{end}}
-  <script>
-    jQuery('.social a').each(function(){var t=jQuery(this); t.attr('href',t.attr('href').replace('{url}',encodeURIComponent(window.location.href)));});
-  </script>
-</html>
-=======
-<html>
+<script src="{{=URL('static','css/myapp.css')}}"></script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -74,11 +27,12 @@
   
   
               <ul class="nav navbar-nav">
-                  <li class="active"><a class="colornav">Home</a></li>
+                  <li class="active"><a href="{{=URL('default', 'index')}}" class="colornav">Home</a></li>
                   <!-- should take to a new page -->
                   <li><a href="{{=URL('default', 'posts')}}" class="colornav">Find Opportunities</a></li>
-                  <li><a href="#services" class="colornav">About</a></li>
-                  <li><a href="#contact" class="colornav">Contact</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">About</a></li>
+                  <li class="difference"><a href="{{=URL('default', 'index')}}" class="colornav">The UniVon Difference</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">Contact</a></li>
               </ul>
   
   
@@ -91,8 +45,12 @@
                       </li>
                   <li>
                       {{if auth.user_id:}}
+<<<<<<< HEAD
+                          <a href="{{=URL('default','user',args=['profile'])}}">Profile</a>
+=======
+                          <a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
+>>>>>>> main_page
                           <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
-  
                       {{else:}}
                       <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
   
@@ -103,7 +61,8 @@
       </nav>
       {{include}}
   </body>
-
+    
+    <div class="w2p_flash alert alert-dismissable">{{=response.flash or ''}}</div>
   <!-- <body class="black">
 
     <header class="black padded">
@@ -129,4 +88,3 @@
     jQuery('.social a').each(function(){var t=jQuery(this); t.attr('href',t.attr('href').replace('{url}',encodeURIComponent(window.location.href)));});
   </script>
 </html>
->>>>>>> a356f25b9ed5b36856cef0094378a579def81884
