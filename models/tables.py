@@ -36,6 +36,15 @@ db.define_table('volunteer_post',
                 Field('local_categories', 'reference categories', label="Category")
                 )
 
+db.define_table('form',
+                Field('organization', 'boolean', label='Children', default=True),
+                Field('opportunity', 'boolean' ),
+                Field('impact', 'boolean'),
+                Field('major', 'boolean'),
+                Field('link', 'boolean'),
+                Field('user_email', 'boolean', default=get_user_email()),
+                Field('updated_on', 'datetime', update=datetime.datetime.utcnow())
+                )
 
 db.volunteer_post.user_email.writable = False
 db.volunteer_post.user_email.readable = False
