@@ -41,10 +41,10 @@
                       {{if auth.user_id is None:}}
                        <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
                    {{pass}}
+                       <a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
                       </li>
                   <li>
                       {{if auth.user_id:}}
-                          <a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
                           <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
                       {{else:}}
                       <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
