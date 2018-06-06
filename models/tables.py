@@ -40,7 +40,12 @@ db.define_table('form',
                 Field('education', 'boolean', default= False),
                 Field('environment', 'boolean', default= False),
                 Field('senior', 'boolean', default= False),
-                Field('community', 'boolean', default= False)
+                Field('community', 'boolean', default= False),
+                Field('women', 'boolean', default= False),
+                Field('fostercare', 'boolean', default= False),
+                Field('homeless', 'boolean', default= False),
+                Field('handm', 'boolean', default= False),
+                Field('senior', 'boolean', default= False)
                 )
 # update=datetime.datetime.utcnow()
 
