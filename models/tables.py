@@ -37,19 +37,31 @@ db.define_table('volunteer_post',
                 )
 
 db.define_table('form',
-                Field('organization', 'boolean', label='Children', default=True),
-                Field('opportunity', 'boolean' ),
-                Field('impact', 'boolean'),
-                Field('major', 'boolean'),
-                Field('link', 'boolean'),
-                Field('user_email', 'boolean', default=get_user_email()),
-                Field('updated_on', 'datetime', update=datetime.datetime.utcnow())
+                Field('organization', 'text', label='Organization'),
+                Field('opportunity', 'text' ),
+                Field('impact', 'text'),
+                Field('major', 'text'),
+                Field('link', 'text'),
+                Field('user_email', default=get_user_email()),
+                Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
+                Field('children', 'boolean', label='Children', default=False),
+                Field('community', 'boolean', default= False),
+                Field('education', 'boolean', default= False),
+                Field('environment', 'boolean', default= False),
+                Field('senior', 'boolean', default= False),
+                Field('community', 'boolean', default= False),
+                Field('women', 'boolean', default= False),
+                Field('fostercare', 'boolean', default= False),
+                Field('homeless', 'boolean', default= False),
+                Field('handm', 'boolean', default= False),
+                Field('senior', 'boolean', default= False)
                 )
+# update=datetime.datetime.utcnow()
 
-db.volunteer_post.user_email.writable = False
-db.volunteer_post.user_email.readable = False
-db.volunteer_post.updated_on.writable = db.volunteer_post.updated_on.readable = False
-db.volunteer_post.id.writable = db.volunteer_post.id.readable = False
+db.form.user_email.writable = False
+db.form.user_email.readable = False
+db.form.updated_on.writable = db.form.updated_on.readable = False
+db.form.id.writable = db.form.id.readable = False
 
 
 
