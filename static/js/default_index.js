@@ -25,6 +25,47 @@ var app = function() {
 
     });
 
+    self.get_user_info = function(){
+        $.getJSON(get_userInfo, //this is a post method which retrieves user data such as name, email, etc.
+            function(data){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+    self.get_user_info = function(){
+        $.getJSON(get_userInfo, //this is a post method which retrieves user data such as name, email, etc.
+            function(data){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+    self.get_user_info = function(){
+        $.getJSON(get_userInfo, //this is a post method which retrieves user data such as name, email, etc.
+            function(data){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+    self.get_user_info = function(){
+        $.getJSON(get_userInfo, //this is a post method which retrieves user data such as name, email, etc.
+            function(data){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+
 
     return self;
 
