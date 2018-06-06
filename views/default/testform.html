@@ -6,9 +6,9 @@
 
 <script> var get_posts_url = "{{=URL('api', 'get_posts')}}"</script>
 
-<div id='vue-div' style="padding-left: 3em; padding-top: 5em">
-    <p>We will retrieve the data.</p>
-    <button v-on:click="get_posts()">Get Posts</button>
+<div id='vue-div' style="padding-left: 0em; padding-top: 1em">
+    <p><b>This is where we will input the data</b></p></br>
+    
 
     <div v-if="posts.length != 0">
         <ul v-for="post in posts"></ul>
@@ -29,6 +29,7 @@
   UserEmail:<br>
   <input type="text" name="UserEmail">
 </form>
+<button v-on:click="submit_posts()">Submit</button>
 
 <script src="{{=URL('static', 'js/default_posts.js')}}"></script>
 

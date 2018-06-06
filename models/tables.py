@@ -38,10 +38,10 @@ db.define_table('form',
                 )
 # update=datetime.datetime.utcnow()
 
-db.volunteer_post.user_email.writable = False
-db.volunteer_post.user_email.readable = False
-db.volunteer_post.updated_on.writable = db.volunteer_post.updated_on.readable = False
-db.volunteer_post.id.writable = db.volunteer_post.id.readable = False
+db.form.user_email.writable = False
+db.form.user_email.readable = False
+db.form.updated_on.writable = db.form.updated_on.readable = False
+db.form.id.writable = db.form.id.readable = False
 
 
 
