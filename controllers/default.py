@@ -72,8 +72,10 @@ def signup():
 def testform():
     form = SQLFORM(db.form)
     if form.process().accepted:
-        print ('nice')
+        print ('it works')
     elif form.errors:
         redirect()
     return dict(form=form)
+
+
 
