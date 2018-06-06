@@ -15,6 +15,14 @@ var app = function() {
 
     self.get_posts = function() {
         $.getJSON(get_posts_url,
+            {
+                community: self.vue.community,
+                women: self.vue.women,
+                fostercare: self.vue.fostercare,
+                homeless: self.vue.homeless,
+                handm: self.vue.handm,
+                senior: self.vue.senior
+            },
             function(data) {
                 t = [];
                 for(i in data.posts) {
@@ -36,7 +44,13 @@ var app = function() {
         data: {
             is_post: true,
             checkedFilters: [],
-            posts: []
+            posts: [],
+            community: true,
+            women: true,
+            fostercare: true,
+            homeless: true,
+            handm: true,
+            senior: true,
         },
         methods: {
             get_posts: self.get_posts
