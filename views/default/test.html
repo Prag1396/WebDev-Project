@@ -65,21 +65,39 @@
         <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
         <div class="data_items">
             <form>
+                <p>Please provide the <b>Name</b> of Company/Organization/Non-profit:</p>
                 <input type="text" v-model="title" placeholder="Company Name">
+                <br><br>
+
+                <p> <b>Describe</b> your Company/Organization/Non-profit:</p>
                 <input type="text" v-model="memo" placeholder="Description">
+                <br><br>
+
+                <p>Please provide the <b>Name of the <i>Position</i></b>: </p>
+                <input type="text" v-model="memo" placeholder="Position">
+                <br><br>
+
+                <p>Please Describe the <b>responsibilities</b> of the position: </p>
+                <input type="text" v-model="memo" placeholder="Responsibility">
+                <br><br>
+
+                <p>Please Describe the <b>qualifications</b> for the position: </p>
+                <input type="text" v-model="memo" placeholder="Qualification">
+                <br><br>
+
+                <p>Please provide the <b>time frame</b> for the job: </p>
+                <input type="text" v-model="memo" placeholder="Time">
+                <br><br>
+
+                <p>What <b>category/categories</b> would you consider the volunteer position to be under?</p>
+                <input type="text" v-model="memo" placeholder="Category">
+                <br><br>
+
                 <input type="submit" placeholder="Submit" v-on:click="createPost()">
             </form>
 
-            <p>Your company name is ${title}</p>
-            <p>Your memo is ${memo}</p>
-
         </div>
     </div>
-
-
-
-
-
 
     <!-- jQuery -->
     <script src="{{=URL('static','js/jquery.js')}}"></script>

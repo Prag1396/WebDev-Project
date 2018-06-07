@@ -32,6 +32,10 @@ db.define_table('volunteer_post',
                 Field('title', label='Company Name'),
                 # Field('author', 'reference companies'),
                 Field('memo', 'text', label='Description'),
+                Field('memo', 'text', label='Position'),
+                Field('memo', 'text', label='Responsibility'),
+                Field('memo', 'text', label='Qualification'),
+                Field('memo', 'text', label='Time'),
                 Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
                 Field('local_categories', 'reference categories', label="Category")
                 )
