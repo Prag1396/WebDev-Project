@@ -90,8 +90,50 @@
                 <br><br>
 
                 <p>What <b>category/categories</b> would you consider the volunteer position to be under?</p>
-                <input type="text" v-model="memo" placeholder="Category">
-                <br><br>
+                <div class="input-group-btn" >
+                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
+                    
+                    <div class="dropdown-menu dropdown-menu-right" >
+                        <ul class="category_filters" >
+                            <li >
+                                <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+                                 <input type="checkbox" id="all" value="all" v-model="checkedFilters">
+                                <label for="jack">All of the above</label>
+                            </li>
+                            <li >
+                                <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+                                <input type="checkbox" id="community" value="community" v-model="checkedFilters">
+                                <label for="jack">Community</label>
+                            </li>
+                             <li >
+                                 <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+                                <input type="checkbox" id="women" value="women" v-model="checkedFilters">
+                                <label for="jack">Women</label>
+                            </li>
+                            <li >
+                                 <!--<input type="radio" name="radios" id="Design" value="Design" ><label class="category-label" for="Design" > Design</label> -->
+                                <input type="checkbox" id="foster" value="foster" v-model="checkedFilters">
+                                <label for="jack">Foster Care</label>
+                            </li>
+                            <li >
+                                 <!-- <input type="radio" name="radios" id="Programming" value="Programming" ><label class="category-label" for="Programming" > Programming</label> -->
+                                <input type="checkbox" id="homelessness" value="homelessness" v-model="checkedFilters">
+                                <label for="jack">Homelessness</label>
+                            </li>
+                            <li >
+                                <!-- <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" for="Sales" > Sales</label> -->
+                                <input type="checkbox" id="health" value="health" v-model="checkedFilters">
+                                <label for="jack">Health and Medicine</label>
+                            </li>
+                            <li >
+                                <!-- <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" for="Support" > Support</label> -->
+                                <input type="checkbox" id="senior" value="senior" v-model="checkedFilters">
+                                <label for="jack">Senior Care</label>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+            <br><br>
 
                 <input type="submit" placeholder="Submit" v-on:click="createPost()">
             </form>
