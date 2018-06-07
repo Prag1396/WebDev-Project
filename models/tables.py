@@ -40,6 +40,23 @@ db.define_table('volunteer_post',
                 Field('local_categories', 'reference categories', label="Category")
                 )
 
+db.define_table('profile_post',
+                Field('user_email', default=get_user_email()),
+                Field('title', label='Profile Name'),
+                # Field('author', 'reference companies'),
+                Field('memo', 'text', label='Self Description'),
+                Field('memo', 'text', label='Experience'),
+                Field('memo', 'text', label='Position'),
+                Field('memo', 'text', label='Vision'),
+                Field('memo', 'text', label='Peers'),
+                Field('memo', 'text', label='Challenge'),
+                Field('memo', 'text', label='Professional'),
+                Field('memo', 'text', label='Personal'),
+                Field('memo', 'text', label='Scenario'),
+                Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
+                Field('local_categories', 'reference categories', label="Category")
+                )
+
 
 db.volunteer_post.user_email.writable = False
 db.volunteer_post.user_email.readable = False
