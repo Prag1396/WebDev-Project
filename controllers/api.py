@@ -20,3 +20,52 @@ def user():
         for field in auth.settings.extra_fields['auth_user']:
             field.readable = field.writable = True
     return dict(form=auth())
+
+// Enumerates an array.
+    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
+
+    self.open_uploader = function (mail) {
+        self.currentEmail = mail;
+        console.log('open_uploader: ' + self.currentEmail );
+        $("div#uploader_div").show();
+        self.vue.is_uploading = true;
+    };
+
+    self.close_uploader = function (text) {
+        $("div#uploader_div").hide();
+        self.vue.is_uploading = false;
+        $("input#file_input").val(""); // This clears the file choice once uploaded.
+
+    };
+
+    self.upload_file = function (event) {
+        // Reads the file.
+        // jQuery.ajaxSetup({async:false}); //temp fix to force non async thus allowing document.location.reload()
+        //reload after upload
+        var input = event.target;
+        var file = input.files[0];
+        var reader = new FileReader();
+        reader.addEventListener("load",function(){
+            self.vue.img_url= reader.results;
+        },false);
+
+# Here go your api methods.
+
+def get_posts():
+    post_db = db(db.form).select()
+    posts = []
+
+    print(post_db)
+
+    for post in post_db:
+        t = dict(
+            id=post.id,
+            organization=post.organization,
+            opportunity=post.opportunity,
+            impact=post.impact,
+            major=post.major,
+            link=post.link
+        )
+        posts.append(t)
+
+    return response.json(dict(posts=posts))

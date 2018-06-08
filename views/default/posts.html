@@ -25,7 +25,7 @@
            <ul class="category_filters" >
             <li >
              <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
-             <input type="checkbox" id="all" value="all" v-model="checkedFilters">
+             <input type="checkbox"  v-on:click="click_all" >
              <label for="jack">All of the above</label>
             </li>
             <li >
@@ -65,8 +65,6 @@
         <button id="postBtn" type="button" v-on:click=""> 
             <i class="glyphicon glyphicon-download-alt"><a href="{{=URL('default', 'test')}}" class="colornav"></i> Post Volunteer Position!</button>
                 
-        <button id="profileBtn" type="button" v-on:click=""> 
-            <i class="glyphicon glyphicon-pencil"><a href="{{=URL('default', 'profile')}}" class="colornav"></i> Edit Profile!</button>
        </div>
       </div>
      </div>

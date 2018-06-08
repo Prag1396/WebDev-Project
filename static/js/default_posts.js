@@ -6,6 +6,14 @@ var app = function() {
 
     Vue.config.silent = false; // show all warnings
 
+        self.click_all = function () {
+        self.vue.checkedFilters=["community", "women", "foster", "homelessness", "health", "senior"];
+        clicked = true;
+    };
+          self.unclick_all = function () {
+        self.vue.checkedFilters=[];
+        clicked = false;
+    };
     // Extends an array
     self.extend = function(a, b) {
         for (var i = 0; i < b.length; i++) {
@@ -36,10 +44,13 @@ var app = function() {
         data: {
             is_post: true,
             checkedFilters: [],
-            posts: []
+            posts: [],
+            clicked: false
         },
         methods: {
-            get_posts: self.get_posts
+            get_posts: self.get_posts,
+            click_all: self.click_all,
+            unclick_all: self.click_all
         }
 
     });

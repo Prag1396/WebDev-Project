@@ -25,6 +25,10 @@ var app = function() {
         self.vue.is_uploading = true;
     };
 
+    self.click_all = function () {
+        checkFilters["community", "women", "foster", "homelessness", "health", "senior"];
+    };
+
     self.close_uploader = function () {
         $("div#uploader_div").hide();
         self.vue.is_uploading = false;
@@ -128,6 +132,7 @@ var app = function() {
         data: {
             is_uploading: false,
             companies: [],
+            checkFilters: [],
             title: '',
             memo: ''
         },
@@ -137,6 +142,7 @@ var app = function() {
             close_uploader: self.close_uploader,
             upload_file: self.upload_file,
             open_editor: self.open_editor,
+            click_all: self.click_all
         }
 
     });
