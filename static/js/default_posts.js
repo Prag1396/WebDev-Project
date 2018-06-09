@@ -7,13 +7,15 @@ var app = function() {
     Vue.config.silent = false; // show all warnings
 
         self.click_all = function () {
-        self.vue.checkedFilters=["community", "women", "foster", "homelessness", "health", "senior"];
-        clicked = true;
-    };
-          self.unclick_all = function () {
-        self.vue.checkedFilters=[];
-        clicked = false;
-    };
+            self.vue.clicked = !self.vue.clicked;
+            if(self.vue.clicked){
+                self.vue.checkedFilters=["community", "women", "foster", "homelessness", "health", "senior"];
+            }
+            if(!self.vue.clicked){
+                self.vue.checkedFilters=[];
+            }
+        };
+
     // Extends an array
     self.extend = function(a, b) {
         for (var i = 0; i < b.length; i++) {
@@ -35,7 +37,6 @@ var app = function() {
     };
 
 
-
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -50,7 +51,6 @@ var app = function() {
         methods: {
             get_posts: self.get_posts,
             click_all: self.click_all,
-            unclick_all: self.click_all
         }
 
     });
