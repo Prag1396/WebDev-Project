@@ -32,7 +32,7 @@ var app = function() {
                     if(t != self.vue.posts)
                         self.vue.posts = t;
                 }
-                console.log(self.vue.posts)
+                console.log(self.vue.posts);
             })
     };
 
@@ -50,7 +50,7 @@ var app = function() {
         },
         methods: {
             get_posts: self.get_posts,
-            click_all: self.click_all,
+            click_all: self.click_all
         }
 
     });

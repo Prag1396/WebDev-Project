@@ -18,12 +18,12 @@ body {
 }
 
 div.profile_div {
-    padding-right: : 100px;
+    padding-right: 100px;
     display: inline-block;
 }
 
 div.logout_div {
-    padding-right: : 50px;
+    padding-right: 50px;
     display: inline-block;
 }
 
@@ -35,7 +35,7 @@ div.logout_div {
 }
 
 .floatright {
-float: right;
+    float: right;
     background-color: #00ff00;
     height: 400px;
     width: 20%;
@@ -318,10 +318,12 @@ footer {
   bottom: 5px;
   right: 5px;
 }
+
 .bg-primary {
   color: #fffff;
   background-color: #bad3d8;
 }
+
 .bg-portfolio{
   background-color:#f5fbfc;
 }
