@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ColVon</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{=URL('static','css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <script src="{{=URL('static', 'js/vue.js')}}"></script>
+    <link href="{{=URL('static','css/custom.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','css/myapp.css')}}" rel="stylesheet">
+    <link href="{{=URL('static','font-awesome-4.6.3/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{=URL('static','css/stupid.css')}}" rel="stylesheet" type="text/css"/>
+
+
+</head>
+
+<body>
+    <nav class="nav fixed-top navbar-custom">
+        <div class="container-fluid">
+              <div class="navbar-header">
+                  <a class="navbar-brand">UniVon</a>
+              </div>
+  
+  
+              <ul class="nav navbar-nav">
+                  <li class="active"><a href="{{=URL('default', 'index')}}" class="colornav">Home</a></li>
+                  <!-- should take to a new page -->
+                  <li><a href="{{=URL('default', 'posts')}}" class="colornav">Find Opportunities</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">About</a></li>
+                  <li><a href="{{=URL('default', 'index')}}" class="colornav">Contact</a></li>
+              </ul>
+  
+  
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                  <li>
+                      {{if auth.user_id is None:}}
+                       <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
+                   {{pass}}
+                       <a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
+                      </li>
+                  <li>
+                      {{if auth.user_id:}}
+                          <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
+                      {{else:}}
+                      <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
+  
+                      {{pass}}
+                  </li>
+              </ul>
+        </div>
+    </nav>
+
+    <div id="vue-div" class="display:none">
+        <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
+        <div class="data_items">
+            <form>
+                <p>Please provide your <b>Name</b>:</p>
+                <input type="text" v-model="title" placeholder="Profile Name">
+                <br><br>
+
+                <p> <b>Describe</b> yourself:</p>
+                <input type="text" v-model="memo" placeholder="Self Description">
+                <br><br>
+
+                <p>Please List and Describe your Prior Experience(s): </p>
+                <input type="text" v-model="memo" placeholder="Experience">
+                <br><br>
+
+                <p>What types of positions are you looking for?</i></b>: </p>
+                <input type="text" v-model="memo" placeholder="Position">
+                <br><br>
+
+                <p> <b>The folowing questions are meant to ease the process for opportunity providers to learn more about you:</b> </p>
+
+                      <p> Why is the vision of our company important to you? </p>
+                      <input type="text" v-model="memo" placeholder="Vision">
+                      <br><br>
+
+                      <p>How would one of your peers describe you?</p>
+                      <input type="text" v-model="memo" placeholder="Peers">
+                       <br><br>
+
+                      <p>If you could change one thing about the way you approach challenges, what would it be?</p>
+                      <input type="text" v-model="memo" placeholder="Challenge">
+                      <br><br>
+
+                      <p>What drives you in your professional life?</p>
+                      <input type="text" v-model="memo" placeholder="Professional">
+                      <br><br>
+
+                      <p>What drives you in your personal life?</p>
+                      <input type="text" v-model="memo" placeholder="Personal">
+                      <br><br>
+
+                      <p>Can you take me through a scenario at work that was particularly stressful for you, and how you handled it?</p>
+                      <input type="text" v-model="memo" placeholder="Scenario">
+                      <br><br>
+
+                <input type="submit" placeholder="Submit" v-on:click="createPost()">
+            </form>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="{{=URL('static','js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{=URL('static','js/bootstrap.min.js')}}"></script>
+
+    <!-- VueJS -->
+    <script src="{{=URL('static', 'js/default_index.js')}}"></script>
+
+</body>
+
+</html>
