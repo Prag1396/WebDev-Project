@@ -25,6 +25,9 @@ var app = function() {
 
     self.get_posts = function() {
         $.getJSON(get_posts_url,
+            {
+                filter: JSON.stringify(self.vue.checkedFilters)
+            },
             function(data) {
                 t = [];
                 for(i in data.posts) {

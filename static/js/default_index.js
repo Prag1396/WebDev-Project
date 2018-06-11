@@ -147,7 +147,17 @@ var app = function() {
 
     });
 
-    $("#vue-div").show();
+    self.get_user_email = function(){
+        $.getJSON(get_user_email, //this is a post method which retrieves user data such as name, email, etc.
+            function(form){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+
     return self;
 };
 

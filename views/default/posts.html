@@ -10,6 +10,8 @@
     // Define API Variables
     var get_posts_url= "{{=URL('api', 'get_posts')}}"
 </script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
 
 {{end}}
 
@@ -60,7 +62,7 @@
            </ul>
         </div>
         <button id="searchBtn" type="button" class="btn btn-secondary btn-search" v-on:click="get_posts"><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span></button>
-        <a href="{{=URL('default', 'test')}}" id="postbtn" type="button" class="btn btn-secondary btn-search" v-on:click=""><i class="fa fa-arrow-circle-up" ></i>    Post Oppurtunity</a>
+        <a href="{{=URL('default', 'postform')}}" id="postbtn" type="button" class="btn btn-secondary btn-search" v-on:click=""><i class="fa fa-arrow-circle-up" ></i>    Post Oppurtunity</a>
        </div>
       </div>
      </div>

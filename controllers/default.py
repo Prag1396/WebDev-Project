@@ -44,10 +44,6 @@ def user():
     return dict(form=auth())
 
 
-def test():
-    return dict()
-
-
 @cache.action()
 def download():
     """
@@ -73,5 +69,22 @@ def posts():
 def signup():
 
     return dict(form=auth())
+
+def postform():
+    form = SQLFORM(db.form)
+    if form.process().accepted:
+        print ('it works')
+    elif form.errors:
+        redirect()
+    return dict(form=form)
+
+def yes():
+    form = SQLFORM(db.form)
+    if form.process().accepted:
+        print ('it works')
+    elif form.errors:
+        redirect()
+    return dict(form=form)    
+
 
 
