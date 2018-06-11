@@ -78,5 +78,13 @@ def testform():
         redirect()
     return dict(form=form)
 
+def yes():
+    form = SQLFORM(db.form)
+    if form.process().accepted:
+        print ('it works')
+    elif form.errors:
+        redirect()
+    return dict(form=form)    
+
 
 

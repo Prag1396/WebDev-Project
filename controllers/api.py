@@ -3,7 +3,22 @@ import json
 
 def get_posts():
     data = json.loads(request.vars.filter)
+    data_bool = [False,False,False,False,False,False]
+    for i in data:
+        if i == "community":
+            data_bool[0] = True
+        elif i == "women":
+            data_bool[1] = True
+        elif i == "foster":
+            data_bool[2] = True
+        elif i == "homelessness":
+            data_bool[3] = True
+        elif i == "health":
+            data_bool[4] = True
+        elif i == "senior":
+            data_bool[5] = True                  
 
+    print(data_bool)
     dbPosts = db(db.form).select()
     posts = []
 
