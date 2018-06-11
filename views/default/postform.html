@@ -2,37 +2,87 @@
 
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
+<link href="{{=URL('static','css/postform.css')}}" rel="stylesheet" type="text/css"/>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    // Define API Variables   
+</script>
+
 {{end}}
 
-<script> var get_posts_url = "{{=URL('api', 'get_posts')}}"</script>
+ <div id="vue-div">
+        <div class= "heading">
+                <h3> Job Post Form</h3>
+        </div>
+        <!-- Your code goes here.  Remember to call $("#vue-div").show() once you get the data for the first time. -->
+        <div class="data_items">
+            <form class="mypostform">
+                <p>Company/Organization Name</p>
+                <input type="text" v-model="name" placeholder="Company Name">
+                <br><br>
 
-<!-- <div id='vue-div' style="padding-left: 0em; padding-top: 1em">
-    <p><b>This is where we will input the data</b></p></br>
-    
+                <p>Job/Oppurtunity (Title + Description) </p>
+                <input type="text" v-model="title" placeholder="Job title">
+                <textarea placeholder="Describe the job oppurtunity and responsibilities here.."></textarea>
+                <br><br>
 
-    <div v-if="posts.length != 0">
-        <ul v-for="post in posts"></ul>
-        <li>${post.organization}</li>
-    </div>
+                <p>Link to webite</p>
+                <input type="text" v-model="link" placeholder="Link to your website">
+                <br><br>
 
+                <p>Contact Email </p>
+                <input type="text" v-model="contact_email" placeholder="Contact email">
+                <br><br>
+
+                <p>What category/categories would you consider the volunteer position to be under?</p>
+
+                <div class="category-options" >                    
+                        <ul class="category_filters" >
+  
+                                <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+                                <input class="options" type="checkbox" id="community" value="community" v-model="checkedFilters">
+                                <label>Community</label>
+                            
+                             
+                                 <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
+                                <input class= "options" type="checkbox" id="women" value="women" v-model="checkedFilters">
+                                <label>Women</label>
+                           
+                            
+                                 <!--<input type="radio" name="radios" id="Design" value="Design" ><label class="category-label" for="Design" > Design</label> -->
+                                <input class="options" type="checkbox" id="foster" value="foster" v-model="checkedFilters">
+                                <label>Foster Care</label>
+                                <br>
+                            
+                               
+                                 <!-- <input type="radio" name="radios" id="Programming" value="Programming" ><label class="category-label" for="Programming" > Programming</label> -->
+                                <input class="options" type="checkbox" id="homelessness" value="homelessness" v-model="checkedFilters">
+                                <label>Homelessness</label>
+                                
+                            
+                                <!-- <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" for="Sales" > Sales</label> -->
+                                <input class="options" type="checkbox" id="health" value="health" v-model="checkedFilters">
+                                <label>Health and Medicine</label>
+                           
+                                <!-- <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" for="Support" > Support</label> -->
+                                <input class= "options" type="checkbox" id="senior" value="senior" v-model="checkedFilters">
+                                <label>Senior Care</label>
+                        </ul>
+                    </div>
+            
+
+                <input type="submit" class="submitbtn" placeholder="Submit" v-on:click="createPost()">
+            </form>
+
+        </div>
 </div>
 
 
- <form>
-  Opportunity:<br>
-  <input type="text" name="Opportunity">
-  <br>
-  Impacts:<br>
-  <input type="text" name="Impact">
-  Major:<br>
-  <input type="text" name="Major">
-  UserEmail:<br>
-  <input type="text" name="UserEmail">
-</form>
-<button v-on:click="submit_posts()">Submit</button> -->
-{{=form}}
 
-<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
 
-add get post to connect it to vue
+
+
 

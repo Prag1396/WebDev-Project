@@ -1,0 +1,27 @@
+.data_items {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.mypostform {
+    display: inline-block;
+    width: 35%;
+   
+}
+
+.heading {
+    margin-top: 20px;;
+    text-align: center;
+}
+
+.category_filters_options {
+    margin-right: 20px;
+}
+
+.descp_box {
+    height: 40px;
+}
+
+.submitbtn {
+    margin-top: 10px;
+}
