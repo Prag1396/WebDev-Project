@@ -32,9 +32,8 @@ var app = function() {
                 t = [];
                 for(i in data.posts) {
                     t.push(data.posts[i]);
-                    if(t != self.vue.posts)
-                        self.vue.posts = t;
                 }
+                self.vue.posts = t
                 console.log(self.vue.posts)
             })
     };
