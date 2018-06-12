@@ -20,10 +20,6 @@ def index():
     # response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
 
-def add_post():
-    form = SQLFORM(db.volunteer_post)
-    return dict(form=form)
-
 def user():
     """
     exposes:
@@ -71,20 +67,10 @@ def signup():
     return dict(form=auth())
 
 def postform():
-    form = SQLFORM(db.form)
-    if form.process().accepted:
-        print ('it works')
-    elif form.errors:
-        redirect()
-    return dict(form=form)
+    return dict()
 
-def yes():
-    form = SQLFORM(db.form)
-    if form.process().accepted:
-        print ('it works')
-    elif form.errors:
-        redirect()
-    return dict(form=form)    
+def contact():
+    return 'window.location = "%s";' % URL('default', 'contact')
 
 
 

@@ -9,6 +9,7 @@
 <script>
     // Define API Variables
     var get_posts_url= "{{=URL('api', 'get_posts')}}"
+    var contact_url= "{{=URL('api', 'go_contact')}}"
 </script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -92,7 +93,7 @@
                         <a class="group inner list-group-item-link" :href="item.link" >More Info</a> 
                         <div class="row">
                             <div class="col-xs-12 col-md-8">
-                                <a class="btn btn-success" href="">Contact</a>
+                                <a class="btn btn-success" href="{{=URL('default', 'contact')}}">Contact</a>
                             </div>
                         </div>
                     </div>

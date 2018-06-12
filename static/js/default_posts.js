@@ -54,10 +54,14 @@ var app = function() {
                     }
                     t.push(data.posts[i]);
                 }
-                self.vue.posts = t
-                console.log(self.vue.posts)
-            })
+                self.vue.posts = t;
+                console.log(self.vue.posts);
+            });
     };
+
+    self.go_to_contact = function(item) {
+        ajax("{{=URL('api', 'go_contact')}}", [], ":eval");
+    }
 
 
     // Complete as needed.
@@ -76,6 +80,7 @@ var app = function() {
             get_posts: self.get_posts,
             get_all: self.get_all,
             click_all: self.click_all,
+            go_to_contact: self.go_to_contact
         },
         beforeMount(){
             this.get_all()

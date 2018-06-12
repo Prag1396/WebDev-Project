@@ -1,6 +1,10 @@
 # Here go your api methods.
 import json
 
+def go_contact():
+    print('redirect')
+    redirect(URL('default', 'contact'), client_side=True)
+
 def get_posts():
 
     if request.vars.filter is None:
