@@ -26,7 +26,8 @@ var app = function() {
     self.get_posts = function() {
         $.getJSON(get_posts_url,
             {
-                filter: JSON.stringify(self.vue.checkedFilters)
+                filter: JSON.stringify(self.vue.checkedFilters),
+                search: self.vue.searchbar
             },
             function(data) {
                 t = [];
@@ -48,7 +49,8 @@ var app = function() {
             is_post: true,
             checkedFilters: [],
             posts: [],
-            clicked: false
+            clicked: false,
+            searchbar: ""
         },
         methods: {
             get_posts: self.get_posts,

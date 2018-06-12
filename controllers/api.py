@@ -3,24 +3,26 @@ import json
 
 def get_posts():
 
+    # List of strings of search request
+    search = request.vars.search.split()
     # Convert the JSON data into a list
     data = json.loads(request.vars.filter)
     # Create a T/F list to determine which items we will send back
     data_bool = dataToBoolean(data)              
-   
+
     dbPosts = db((db.form.community == True) |
                  (db.form.women == True) |
                  (db.form.fostercare == True) |
                  (db.form.homeless == True) |
                  (db.form.handm == True) |
-                 (db.form.senior == True)
-                ).select()
+                 (db.form.senior == True) |
+                 (db.form.job_title.contains(search))
+                 ).select()
             
     posts = []
 
-
     for i in dbPosts.sort(lambda i: i.updated_on):
-        if(shouldSendBack(i, data_bool) == True):
+        if(shouldSendBack(i, data_bool) == True and containsSearch(i, search)):
             t = dict(
                 id=i.id,
                 name=i.organization,
@@ -30,7 +32,7 @@ def get_posts():
                 contact_email=i.contact_email,
             )
             posts.append(t)
-
+    print(posts)
     return response.json(dict(posts=posts))
 
 def dataToBoolean(data):
@@ -64,6 +66,14 @@ def shouldSendBack(item, data_bool):
     if item.senior == data_bool[5] == True:
         return True 
     return False
+
+def containsSearch(item, search):
+    for word in search:
+        if word in item.job_title.lower():
+            return True
+        else:
+            return False     
+        
 
 def user():
     if request.args(0) == 'profile':
