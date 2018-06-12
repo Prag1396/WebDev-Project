@@ -8,10 +8,8 @@ def get_posts():
 
     # List of strings of search request
     search = request.vars.search.split()
-    # Convert the JSON data into a list
-    data = json.loads(request.vars.filter)
-    # Create a T/F list to determine which items we will send back
-    data_bool = dataToBoolean(data)              
+    # Create a T/F list of the filters to determine which items we will send back
+    data_bool = dataToBoolean(json.loads(request.vars.filter))              
 
     dbPosts = db((db.form.community == True) |
                  (db.form.women == True) |
@@ -35,6 +33,24 @@ def get_posts():
             )
             posts.append(t)
     return response.json(dict(posts=posts))
+
+def input_posts():
+    data_bool = dataToBoolean(json.loads(request.vars.filter))  
+    db.form.insert( organization=request.vars.name,
+                    job_title=request.vars.title,
+                    opportunity=request.vars.description,
+                    link=request.vars.link,
+                    contact_email=request.vars.contact_email,
+                    community=data_bool[0],
+                    women=data_bool[1],
+                    fostercare=data_bool[2],
+                    homeless=data_bool[3],
+                    handm=data_bool[4],
+                    senior=data_bool[5],
+                    )
+
+    return dict()                
+        
 
 def dataToBoolean(data):
     data_bool = [False,False,False,False,False,False]
