@@ -31,7 +31,27 @@ var app = function() {
             },
             function(data) {
                 t = [];
+                var prefix = 'http://';
                 for(i in data.posts) {
+                    if(data.posts[i].link.substr(0,4) != "http"){
+                        data.posts[i].link = prefix + data.posts[i].link;
+                    }
+                    t.push(data.posts[i]);
+                }
+                self.vue.posts = t
+                console.log(self.vue.posts)
+            })
+    };
+
+    self.get_all = function() {
+        $.getJSON(get_posts_url,
+            function(data) {
+                t = [];
+                var prefix = 'http://';
+                for(i in data.posts) {
+                    if(data.posts[i].link.substr(0,4) != "http"){
+                        data.posts[i].link = prefix + data.posts[i].link;
+                    }
                     t.push(data.posts[i]);
                 }
                 self.vue.posts = t
@@ -47,14 +67,18 @@ var app = function() {
         unsafeDelimiters: ['!{', '}'],
         data: {
             is_post: true,
-            checkedFilters: [],
+            checkedFilters: ["community", "women", "foster", "homelessness", "health", "senior"],
             posts: [],
-            clicked: false,
+            clicked: true,
             searchbar: ""
         },
         methods: {
             get_posts: self.get_posts,
+            get_all: self.get_all,
             click_all: self.click_all,
+        },
+        beforeMount(){
+            this.get_all()
         }
 
     });

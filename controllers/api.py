@@ -3,6 +3,9 @@ import json
 
 def get_posts():
 
+    if request.vars.filter is None:
+        return get_all()
+
     # List of strings of search request
     search = request.vars.search.split()
     # Convert the JSON data into a list
@@ -15,8 +18,7 @@ def get_posts():
                  (db.form.fostercare == True) |
                  (db.form.homeless == True) |
                  (db.form.handm == True) |
-                 (db.form.senior == True) |
-                 (db.form.job_title.contains(search))
+                 (db.form.senior == True)
                  ).select()
             
     posts = []
@@ -32,7 +34,6 @@ def get_posts():
                 contact_email=i.contact_email,
             )
             posts.append(t)
-    print(posts)
     return response.json(dict(posts=posts))
 
 def dataToBoolean(data):
@@ -68,13 +69,30 @@ def shouldSendBack(item, data_bool):
     return False
 
 def containsSearch(item, search):
+    if not search:
+        return True
     for word in search:
-        if word in item.job_title.lower():
+        if word.lower() in item.job_title.lower():
             return True
-        else:
-            return False     
-        
+    return False
 
+def get_all():
+    dbPosts = db().select(db.form.ALL)
+            
+    posts = []
+
+    for i in dbPosts.sort(lambda i: i.updated_on):
+        t = dict(
+            id=i.id,
+            name=i.organization,
+            title=i.job_title,
+            description=i.opportunity,
+            link=i.link,
+            contact_email=i.contact_email,
+        )
+        posts.append(t)
+    return response.json(dict(posts=posts))
+        
 def user():
     if request.args(0) == 'profile':
         for field in auth.settings.extra_fields['auth_user']:
