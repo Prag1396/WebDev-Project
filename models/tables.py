@@ -19,28 +19,27 @@ def user():
 
 # Hello Geo
 
-db.define_table('categories',
-                Field('children', 'boolean', label='Children', default=True),
+db.define_table('form',
+                Field('organization', 'string', label='Organization'),
+                Field('job_title', 'string', label='Job Title'),
+                Field('opportunity', 'text', label='Description'),
+                Field('link', 'string'),
+                Field('contact_email', 'string', default=get_user_email()),
                 Field('community', 'boolean', default=False),
-                Field('education', 'boolean'),
-                Field('environment', 'boolean'),
-                Field('senior', 'boolean')
-                )
-
-db.define_table('volunteer_post',
+                Field('women', 'boolean', default= False),
+                Field('fostercare', 'boolean', default=False),
+                Field('homeless', 'boolean', default=False),
+                Field('handm', 'boolean', default=False),
+                Field('senior', 'boolean', default=False),
                 Field('user_email', default=get_user_email()),
-                Field('title', label='Company Name'),
-                # Field('author', 'reference companies'),
-                Field('memo', 'text', label='Description'),
                 Field('updated_on', 'datetime', update=datetime.datetime.utcnow()),
-                Field('local_categories', 'reference categories', label="Category")
                 )
+# update=datetime.datetime.utcnow()
 
-
-db.volunteer_post.user_email.writable = False
-db.volunteer_post.user_email.readable = False
-db.volunteer_post.updated_on.writable = db.volunteer_post.updated_on.readable = False
-db.volunteer_post.id.writable = db.volunteer_post.id.readable = False
+db.form.user_email.writable = False
+db.form.user_email.readable = False
+db.form.updated_on.writable = db.form.updated_on.readable = False
+db.form.id.writable = db.form.id.readable = False
 
 
 

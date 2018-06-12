@@ -3,29 +3,31 @@
 {{block head}}
 <script src="{{=URL('static', 'js/vue.js')}}"></script>
 <link href="{{=URL('static','css/search-filter.css')}}" rel="stylesheet" type="text/css"/>
+
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
     // Define API Variables
-    var get_posts_url="{{=URL('api', 'get_posts')}}";
+    var get_posts_url= "{{=URL('api', 'get_posts')}}"
+    var contact_url= "{{=URL('api', 'go_contact')}}"
 </script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
 
 {{end}}
-
+<div id="vue-div">
 <div class="container">
-  <div id="vue-div" class="row searchFilter" >
+  <div class="row searchFilter" >
      <div class="col-sm-12" >
       <div class="input-group" >
-       <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown" >
+       <input id="table_filter" type="text" class="form-control" aria-label="Text input with segmented button dropdown" v-model="searchbar">
        <div class="input-group-btn" >
         <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><span class="label-icon" >Category</span> <span class="caret" >&nbsp;</span></button>
         <div class="dropdown-menu dropdown-menu-right" >
            <ul class="category_filters" >
             <li >
              <!-- <input class="cat_type category-input" data-label="All" id="all" value="" name="radios" type="radio" ><label for="all" > All</label> -->
-             <input type="checkbox" id="all" value="all" v-model="checkedFilters">
+             <input type="checkbox" v-on:click="click_all" checked>
              <label for="jack">All of the above</label>
             </li>
             <li >
@@ -61,6 +63,7 @@
            </ul>
         </div>
         <button id="searchBtn" type="button" class="btn btn-secondary btn-search" v-on:click="get_posts"><span class="glyphicon glyphicon-search" >&nbsp;</span> <span class="label-icon" >Search</span></button>
+        <a href="{{=URL('default', 'postform')}}" id="postbtn" type="button" class="btn btn-secondary btn-search" v-on:click=""><i class="fa fa-arrow-circle-up" ></i>    Post Oppurtunity</a>
        </div>
       </div>
      </div>
@@ -68,7 +71,7 @@
 </div>
 
 <div class="container">
-    <div class="well well-sm">
+    <!-- <div class="well well-sm">
         <strong>Display</strong>
         <div class="btn-group">
             <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
@@ -76,130 +79,29 @@
             <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th">
                 </span>Grid</a>
         </div>
-    </div>
+    </div> -->
     <div id="products" class="row list-group">
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
+        <div v-for="item in posts">
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="{{=URL('static','images/imagePlaceholder.jpg')}}" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            ${item.title}</h4>
+                        <p class="group inner list-group-item-text">
+                            ${item.description}</p>
+                        <a class="group inner list-group-item-link" :href="item.link" >More Info</a> 
+                        <div class="row">
+                            <div class="col-xs-12 col-md-8">
+                                <a class="btn btn-success" v-on:click="set_mail_post(item)" href="{{=URL('api', 'go_contact')}}">Contact</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-             <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-             <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-             <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-             <div class="item  col-xs-4 col-lg-4">
-            <div class="thumbnail">
-                <img class="group list-group-image" src="{{=URL('static','images/AddImageplcholder.png')}}" alt="" />
-                <div class="caption">
-                    <h4 class="group inner list-group-item-heading">
-                        Volunteering title Fetched from database</h4>
-                    <p class="group inner list-group-item-text">
-                        Volunteering description Fetched from database.</p>
-                    <div class="row">
-                        <div class="col-xs-12 col-md-8">
-                            <p class="lead">
-                                $21.000</p>
-                        </div>
-                        <div class="col-xs-12 col-md-8">
-                            <a class="btn btn-success" href="">Contact</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div>   
     </div>
+</div>
 </div>
 
 <script>

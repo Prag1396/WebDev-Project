@@ -1,6 +1,5 @@
 <html>
 
-<script src="{{=URL('static','css/myapp.css')}}"></script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -35,24 +34,25 @@
                   <li><a href="{{=URL('default', 'index')}}" class="colornav">Contact</a></li>
               </ul>
   
-  
               <ul class="nav navbar-nav navbar-right">
-                  <li>
+                  
                   <li>
                       {{if auth.user_id is None:}}
                        <a href="{{=URL('default','signup',args=['register'])}}"><span class="glyphicon glyphicon-user"></span> Sign up</a>
-                   {{pass}}
+                   {{pass}}     
                       </li>
-                  <li>
                       {{if auth.user_id:}}
-                          
-<a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
-<a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
+                      <li>
+                        <a href="{{=URL('default','user',args=['profile'])}}" class="profile_div">Profile</a> 
+                      </li>
+                      <li>
+                        <a href="{{=URL('default','user',args=['logout'])}}">Log out</a>
+                      </li>
                       {{else:}}
-                      <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
-  
-                      {{pass}}
-                  </li>
+                      <li>
+                        <a href="{{=URL('default', 'user', args=['login'])}}"> Log in</a>
+                      </li>
+                      {{pass}}          
               </ul>
           </div>
       </nav>

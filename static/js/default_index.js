@@ -17,6 +17,21 @@ var app = function() {
         alert("Submitted");
     };
 
+    // Enumerates an array.
+    var enumerate = function(v) { var k=0; return v.map(function(e) {e._idx = k++;});};
+
+    self.click_all = function () {
+        checkFilters["community", "women", "foster", "homelessness", "health", "senior"];
+    };
+
+    self.open_editor = function(_idx) {
+        self.vue.edit_idx = _idx;
+        self.vue.images[_idx].is_editing = !self.vue.images[_idx].is_editing;
+        if(self.vue.is_editing){
+            self.vue.form_edit = self.vue.images[_idx].price;
+        }
+    }
+
     // Complete as needed.
     self.vue = new Vue({
         el: "#vue-div",
@@ -24,16 +39,26 @@ var app = function() {
         unsafeDelimiters: ['!{', '}'],
         data: {
             companies: [],
+            checkFilters: [],
             title: '',
             memo: ''
         },
         methods: {
-            createPost: self.createPost
         }
 
     });
 
-    $("#vue-div").show();
+    self.get_user_email = function(){
+        $.getJSON(get_user_email, //this is a post method which retrieves user data such as name, email, etc.
+            function(form){
+                self.vue.userEmail = data.user.email;
+                self.vue.userName = data.user.first_name;
+                self.get_user_images(self.vue.userEmail);
+                self.vue.currentEmail = self.vue.userEmail;
+            }
+            ); 
+    };
+
     return self;
 };
 

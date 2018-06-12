@@ -6,6 +6,16 @@ var app = function() {
 
     Vue.config.silent = false; // show all warnings
 
+        self.click_all = function () {
+            self.vue.clicked = !self.vue.clicked;
+            if(self.vue.clicked){
+                self.vue.checkedFilters=["community", "women", "foster", "homelessness", "health", "senior"];
+            }
+            if(!self.vue.clicked){
+                self.vue.checkedFilters=[];
+            }
+        };
+
     // Extends an array
     self.extend = function(a, b) {
         for (var i = 0; i < b.length; i++) {
@@ -15,18 +25,43 @@ var app = function() {
 
     self.get_posts = function() {
         $.getJSON(get_posts_url,
+            {
+                filter: JSON.stringify(self.vue.checkedFilters),
+                search: self.vue.searchbar
+            },
             function(data) {
                 t = [];
+                var prefix = 'http://';
                 for(i in data.posts) {
+                    if(data.posts[i].link.substr(0,4) != "http"){
+                        data.posts[i].link = prefix + data.posts[i].link;
+                    }
                     t.push(data.posts[i]);
-                    if(t != self.vue.posts)
-                        self.vue.posts = t;
                 }
+                self.vue.posts = t
                 console.log(self.vue.posts)
             })
     };
 
+    self.get_all = function() {
+        $.getJSON(get_posts_url,
+            function(data) {
+                t = [];
+                var prefix = 'http://';
+                for(i in data.posts) {
+                    if(data.posts[i].link.substr(0,4) != "http"){
+                        data.posts[i].link = prefix + data.posts[i].link;
+                    }
+                    t.push(data.posts[i]);
+                }
+                self.vue.posts = t;
+                console.log(self.vue.posts);
+            });
+    };
 
+    self.set_mail_post = function(item){
+        mail_post = item;
+    }
 
     // Complete as needed.
     self.vue = new Vue({
@@ -35,11 +70,22 @@ var app = function() {
         unsafeDelimiters: ['!{', '}'],
         data: {
             is_post: true,
-            checkedFilters: [],
-            posts: []
+            checkedFilters: ["community", "women", "foster", "homelessness", "health", "senior"],
+            posts: [],
+            clicked: true,
+            searchbar: "",
+            mail_post: null
         },
         methods: {
-            get_posts: self.get_posts
+            get_posts: self.get_posts,
+            get_all: self.get_all,
+            click_all: self.click_all,
+            go_to_contact: self.go_to_contact,
+            set_mail_post: self.set_mail_post
+            
+        },
+        beforeMount(){
+            this.get_all()
         }
 
     });

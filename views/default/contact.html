@@ -1,0 +1,28 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+<script src="{{=URL('static', 'js/vue.js')}}"></script>
+<link href="{{=URL('static','css/postform.css')}}" rel="stylesheet" type="text/css"/>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+    // Define API Variables
+    var get_posts_url= "{{=URL('api', 'get_posts')}}"   
+</script>
+
+{{end}}
+
+<div>hello</div>
+{{=data}}
+
+<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
+
+
+
+
+
+
+
+

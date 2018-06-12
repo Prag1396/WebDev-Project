@@ -20,10 +20,6 @@ def index():
     # response.flash = T("Hello World")
     return dict(message=T('Welcome to web2py!'))
 
-def add_post():
-    form = SQLFORM(db.volunteer_post)
-    return dict(form=form)
-
 def user():
     """
     exposes:
@@ -42,10 +38,6 @@ def user():
     """
 
     return dict(form=auth())
-
-
-def test():
-    return dict()
 
 
 @cache.action()
@@ -73,6 +65,14 @@ def posts():
 def signup():
 
     return dict(form=auth())
+
+def postform():
+    return dict()
+
+def contact():
+    data = session.data
+    return dict(data=data)
+
 
 
 
