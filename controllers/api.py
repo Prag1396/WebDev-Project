@@ -2,8 +2,9 @@
 import json
 
 def go_contact():
-    print('redirect')
-    redirect(URL('default', 'contact'), client_side=True)
+    print(request.args)
+    session.data = 'yes'
+    redirect(URL('default', 'contact')) 
 
 def get_posts():
 

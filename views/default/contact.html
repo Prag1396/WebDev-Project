@@ -9,15 +9,15 @@
 
 <script>
     // Define API Variables
-    var input_posts_url= "{{=URL('api', 'input_posts')}}"   
+    var get_posts_url= "{{=URL('api', 'get_posts')}}"   
 </script>
 
 {{end}}
 
- <div id="vue-div">
-        hello
-</div>
+<div>hello</div>
+{{=data}}
 
+<script src="{{=URL('static', 'js/default_posts.js')}}"></script>
 
 
 

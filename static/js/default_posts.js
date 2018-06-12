@@ -59,10 +59,9 @@ var app = function() {
             });
     };
 
-    self.go_to_contact = function(item) {
-        ajax("{{=URL('api', 'go_contact')}}", [], ":eval");
+    self.set_mail_post = function(item){
+        mail_post = item;
     }
-
 
     // Complete as needed.
     self.vue = new Vue({
@@ -74,13 +73,16 @@ var app = function() {
             checkedFilters: ["community", "women", "foster", "homelessness", "health", "senior"],
             posts: [],
             clicked: true,
-            searchbar: ""
+            searchbar: "",
+            mail_post: null
         },
         methods: {
             get_posts: self.get_posts,
             get_all: self.get_all,
             click_all: self.click_all,
-            go_to_contact: self.go_to_contact
+            go_to_contact: self.go_to_contact,
+            set_mail_post: self.set_mail_post
+            
         },
         beforeMount(){
             this.get_all()

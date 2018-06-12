@@ -70,7 +70,8 @@ def postform():
     return dict()
 
 def contact():
-    return 'window.location = "%s";' % URL('default', 'contact')
+    data = session.data
+    return dict(data=data)
 
 
 
