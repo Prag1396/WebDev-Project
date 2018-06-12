@@ -60,8 +60,9 @@ var app = function() {
     };
 
     self.set_mail_post = function(item){
-        mail_post = item;
-    }
+        if(self.vue.mail_post != item) self.vue.mail_post = item;
+        else if(self.vue.mail_post = item) self.vue.mail_post = null;
+    };
 
     // Complete as needed.
     self.vue = new Vue({
@@ -81,8 +82,7 @@ var app = function() {
             get_all: self.get_all,
             click_all: self.click_all,
             go_to_contact: self.go_to_contact,
-            set_mail_post: self.set_mail_post
-            
+            set_mail_post: self.set_mail_post,            
         },
         beforeMount(){
             this.get_all()

@@ -79,7 +79,7 @@
             <a href="#" id="grid" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th">
                 </span>Grid</a>
         </div>
-    </div> -->
+    </div> -->  
     <div id="products" class="row list-group">
         <div v-for="item in posts">
             <div class="item  col-xs-4 col-lg-4">
@@ -93,14 +93,15 @@
                         <a class="group inner list-group-item-link" :href="item.link" >More Info</a> 
                         <div class="row">
                             <div class="col-xs-12 col-md-8">
-                                <a class="btn btn-success" v-on:click="set_mail_post(item)" href="{{=URL('api', 'go_contact')}}">Contact</a>
+                                <a class="btn btn-success" v-on:click="set_mail_post(item)">Contact</a>
+                                <div v-if="mail_post == item">${item.contact_email}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>   
-    </div>
+    </div> 
 </div>
 </div>
 
